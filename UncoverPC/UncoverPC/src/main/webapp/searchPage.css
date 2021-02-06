@@ -1,0 +1,45 @@
+  .submit {
+    border-radius: 25px;
+    top:20px;
+    width:200px;
+    background-color: lightgreen;
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: 0.3s;
+  }
+  
+   .submit:hover {
+    background-color: #3e8e41;
+    color: white;
+  }
+  
+  .submit:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+
+
+#rcorners2 {
+    border-radius: 25px;
+    border: 2px solid green;
+    padding: 20px; 
+    width: 200px;
+    height: 50px;  
+  }
+  
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    font-family: Pacifico, Calibri;
+    font-size: 3em;
+}
+  

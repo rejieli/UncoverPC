@@ -1,0 +1,9 @@
+.errorTitle{
+    font-size: 100px; 
+    position: relative;
+    font-weight: bold;
+    padding-top: 50px;
+    left:50px;  
+    color: rgb(51, 31, 31);
+    text-align-last: center;
+}

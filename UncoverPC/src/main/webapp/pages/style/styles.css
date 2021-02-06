@@ -1,0 +1,166 @@
+/* Nav bar */
+.navbar-size {
+    padding-top:10px !important; padding-bottom:10 !important;
+    height: 94px;
+    width: 1920px !important;
+    background-color: #000000;
+}
+
+nav > li > a.NavBar{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding-bottom: 30px;
+}
+
+nav > li > a.search{
+    position: relative;
+    left: 1300px;
+}
+
+nav > li > a.howTo{
+    position: relative;
+    left: 1000px;
+}
+
+/* Background */
+.indexBackgroundImage {
+    background-image: url('assets/background1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 1080px !important;
+}
+
+.errorBackgroundImage{
+    background-image: url('Assets/background3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+}
+
+.backgroundColor{
+    background-color: rgb(195, 125, 125);
+}
+
+/* Font */
+.indexFont{
+    font-family: 'Times New Roman', Times, serif;
+    color : rgb(255, 255, 255);
+}
+
+
+
+/* Headers */
+h1{
+    font-size: 90px;
+    padding-top: 50px;
+    position: relative;
+    text-align-last: center;
+}
+
+.h2{
+    font-size: 50px;
+    padding-top: 0px;
+    position: absolute;
+    color: black;
+    text-align: left;   
+}
+
+
+/* Texts */
+p.indexText{
+    font-size: 30px; 
+    position: absolute;
+    padding-top: 50px;
+    left:50px;  
+    color: white;
+    text-align-last: center;
+}
+
+.errorTitle{
+    font-size: 100px; 
+    position: relative;
+    font-weight: bold;
+    padding-top: 50px;
+    left:50px;  
+    color: rgb(51, 31, 31);
+    text-align-last: center;
+}
+
+.aboutTitle{
+    font-size: 60px; 
+    position: absolute;
+    padding-top: 25px;
+    left:750px;  
+    top:1250px;
+    color: black;
+    text-align: center;
+}
+
+.indexParagraph{
+    font-size: 20px;
+    position: relative;
+    padding-top: 75px;
+    color: black;
+}
+
+/* Buttons */
+
+.getStarted{
+    position: absolute;
+    left:310px;
+    top:600px;
+    width: 250px;
+    height: 75px;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: green;
+  opacity: 0.9;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 28px;
+
+  transition: all 0.3s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.errorText{
+	font-size: 40px; 
+    position: absolute;
+    font-weight: 20;
+    color: rgb(51, 31, 31);
+    float:left;
+}
+
+/* Positioning */

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UncoverPC</title>
+    <link rel="stylesheet" href="/pages/style/searchPage.css">
+    <link rel="stylesheet" href="/pages/style/animations.css">
+    <script type="text/javascript"></script>
+</head>
+
+<body>
+    <!-- FORM -->
+    <form class="center" action="/result" method="POST">
+        <a href="/"><img src="assets/Logo2.png"></a>
+        <input class="searchBar" id="rcorners2" type="text" id="link" name="link" style="width:1200px"
+            placeholder="URL to PC..."><br>
+        <input class="submit" type="submit" value="Search!" onclick="animation()">
+    </form> 
+        <div class="loader-wrapper load" id="ani">
+            <span class="title" id="text">Building your computer...</span>
+            <script>
+                //Making animation visible
+                var x = document.getElementById('ani');
+              x.style.visibility = 'hidden';
+             
+            </script>
+            <!-- animation -->
+            <span class="loader"><span class="loader-inner"></span></span>
+        </div>
+        <script>
+            function animation() {
+                //Making animation invisible
+              var x = document.getElementById('ani');
+              x.style.visibility = 'visible';
+            //   Starting stopwatch
+              var counter = 0;
+                setInterval(function () {
+                    ++counter;
+                    document.getElementById("text").innerHTML = "Building your computer..." + counter;
+                }, 1000);
+            }
+            </script>
+</body>
+
+</html>
