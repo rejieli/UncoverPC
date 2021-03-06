@@ -52,7 +52,7 @@ public class Newegg implements Runnable{
 				//Getting Product Link
 				String productLink = productInformation[2];
 				//Getting Price
-				String productPrice = productInformation[3].split("\\s+")[0].replace("$","");
+				String productPrice = String.valueOf(Utils.parseDouble(productInformation[3].split("\\s+")[0]));
 				//Adding to results
 				results.add(new Component(productTitle, productImageLink, productLink, productPrice));
 			}

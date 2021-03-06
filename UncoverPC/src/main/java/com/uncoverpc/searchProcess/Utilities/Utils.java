@@ -27,6 +27,10 @@ public class Utils {
 		return true;
 	}
 	
+	public static Double parseDouble(String d) {
+		return new Double(d.replaceAll("[^0-9.]", ""));
+	}
+	
 	/**
 	 * sorts valid components that match the keywords
 	 * @param results, ArrayList<Component>

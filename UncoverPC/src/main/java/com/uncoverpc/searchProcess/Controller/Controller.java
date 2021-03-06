@@ -27,6 +27,7 @@ public class Controller {
 		try {
 			if (link.toLowerCase().contains("BestBuy.ca".toLowerCase())) {
 				pc = BestBuy.getPC(link);
+				System.out.println(pc.toString());
 				System.out.println("BestBuy Scraping Time: " + bestBuy.stop());
 
 				if (pc.getDoublePrice() > 900) {

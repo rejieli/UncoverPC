@@ -58,9 +58,9 @@ public class Amazon implements Runnable {
 					// Getting Price
 					String productPrice;
 					try {
-						productPrice = productInformation[3].split("\\s+")[1];
+						productPrice = String.valueOf(Utils.parseDouble(productInformation[3].split("\\s+")[1]));
 					} catch (Exception e) {
-						productPrice = productInformation[3];
+						productPrice =String.valueOf(Utils.parseDouble(productInformation[3]));
 					}
 					// Adding to results
 					results.add(new Component(productTitle, productImageLink, productLink, productPrice));

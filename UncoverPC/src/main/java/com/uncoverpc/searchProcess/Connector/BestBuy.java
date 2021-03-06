@@ -9,6 +9,7 @@ public class BestBuy {
 
 	/**
 	 * Gets all components from the prebuilt
+	 * 
 	 * @param link
 	 * @return PC
 	 */
@@ -28,14 +29,16 @@ public class BestBuy {
 		String imageLink = getProductImage(page);
 		String title = getTitle(page);
 		// Creating new PC Object
-		PC prebuilt = new PC(link, price, imageLink, cpu, ramSize, ramSpeed, hddSize, hddSpeed, ssdSize, gpu, powerSupply);
+		PC prebuilt = new PC(link, price, imageLink, cpu, ramSize, ramSpeed, hddSize, hddSpeed, ssdSize, gpu,
+				powerSupply);
 		prebuilt.setTitle(title);
 		return prebuilt;
 	}
 
 	/**
 	 * Checking if component is in the source code
-	 * @param htmlText, String
+	 * 
+	 * @param htmlText,  String
 	 * @param component, String
 	 * @return whether component is in source code
 	 */
@@ -48,6 +51,7 @@ public class BestBuy {
 
 	/**
 	 * Checking if there is a dollar sign in the htmlcode
+	 * 
 	 * @param htmlText, String
 	 * @param endIndex, String
 	 * @return htmlcode contains dollar sign
@@ -67,7 +71,8 @@ public class BestBuy {
 
 	/**
 	 * Gets the end of a quotation mark '"'
-	 * @param htmlText, String
+	 * 
+	 * @param htmlText,   String
 	 * @param beginIndex, int
 	 * @return the index of the nearest quotation mark '"'
 	 */
@@ -86,6 +91,7 @@ public class BestBuy {
 
 	/**
 	 * Scrapes the CPU type of prebuilt computer using String manipulation
+	 * 
 	 * @param page, Document
 	 * @return CPU from prebuilt computer
 	 */
@@ -104,13 +110,14 @@ public class BestBuy {
 				cpu = cpu.replace("ci", "core i");
 				String[] info = cpu.split("\\s+");
 				for (int i = 0; i < info.length; i++) {
-					if (info[i].equals("intel".toLowerCase()) && info[i + 1].equals("core".toLowerCase())&&info[i + 2].charAt(0) == 'i') {
+					if (info[i].equals("intel".toLowerCase()) && info[i + 1].equals("core".toLowerCase())
+							&& info[i + 2].charAt(0) == 'i') {
 						cpu = info[i] + " " + info[i + 1] + " " + info[i + 2];
 					}
 				}
-			}else if(cpu.contains("amd".toLowerCase()) || cpu.contains("ryzen".toLowerCase())) {
-				//AMD CPU
-				
+			} else if (cpu.contains("amd".toLowerCase()) || cpu.contains("ryzen".toLowerCase())) {
+				// AMD CPU
+
 			}
 			return cpu;
 		}
@@ -119,6 +126,7 @@ public class BestBuy {
 
 	/**
 	 * Scrapes ram size of the prebuilt computer using String manipulation
+	 * 
 	 * @param page, Document
 	 * @return ram size from prebuilt
 	 */
@@ -143,7 +151,8 @@ public class BestBuy {
 
 	/**
 	 * subStrings ramSize to format it
-	 * @param htmlText, String
+	 * 
+	 * @param htmlText,   String
 	 * @param beginIndex, int
 	 * @return index where it should subString
 	 */
@@ -162,6 +171,7 @@ public class BestBuy {
 
 	/**
 	 * Scrapes ram speed from prebuilt computer using String manipulation
+	 * 
 	 * @param page, Document
 	 * @return ram speed from prebuilt computer
 	 */
@@ -187,6 +197,7 @@ public class BestBuy {
 
 	/**
 	 * Scrapes hard drive size from prebuilt computer using String manipulation
+	 * 
 	 * @param page, Document
 	 * @return hard drive size of prebuilt computer
 	 */
@@ -206,6 +217,7 @@ public class BestBuy {
 
 	/**
 	 * Scrapes hard drive speed from prebuilt computer using String manipulation
+	 * 
 	 * @param page, Document
 	 * @return hard drive speed of prebuilt computer
 	 */
@@ -220,9 +232,10 @@ public class BestBuy {
 		}
 		return hardDriveSpeed;
 	}
-	
+
 	/**
 	 * Scrapes SSD size from prebuilt computer using String manipulation
+	 * 
 	 * @param page, Document
 	 * @return SSD size of prebuilt computer
 	 */
@@ -243,6 +256,7 @@ public class BestBuy {
 
 	/**
 	 * Scrapes GPU type from prebuilt computer using String manipulation
+	 * 
 	 * @param page, Document
 	 * @return GPU of prebuilt computer
 	 */
@@ -261,6 +275,7 @@ public class BestBuy {
 
 	/**
 	 * Scrapes power supply wattage from prebuilt computer using String manipulation
+	 * 
 	 * @param page, Document
 	 * @return power supply wattage of prebuilt computer
 	 */
@@ -273,8 +288,8 @@ public class BestBuy {
 			int endIndex = getEnd(htmlText, beginIndex + id.length());
 			powerSupply = htmlText.substring(beginIndex + id.length(), endIndex);
 		}
-		//Formating
-		if(powerSupply.charAt(powerSupply.length()-1) != 'W') {
+		// Formating
+		if (powerSupply.charAt(powerSupply.length() - 1) != 'W') {
 			powerSupply = powerSupply.substring(0, powerSupply.indexOf("W") + 1);
 		}
 		return powerSupply;
@@ -282,32 +297,42 @@ public class BestBuy {
 
 	/**
 	 * Scrapes price of the prebuilt using selectors
+	 * 
 	 * @param page, Document
 	 * @return price of prebuilt
 	 */
 	private static String getPrice(Document page) {
-		return Connector.scrape(page,
-				"#root > div > div > div.x-page-content.container_3Sp8P > div.x-product-detail-page > div.row_1Rbqw > div.col-xs-12_1GBy8.col-sm-6_9CRts.col-md-4_2WnBH.collapseColContainer_ueBNu > div.pricingContainer_25k3c > div > span > span");
+		String price = Connector.scrape(page,
+				"#root > div > div > div.x-product-detail-page > div.row_1mOdd > div> div > div > span > div");
+		if (price.contains(".")) {
+			return price;
+		}else {
+			String s1 = price.substring(0,price.length()-3);
+			String s2 = price.substring(price.length()-3, price.length());
+			return s1 + "." + s2;
+		}
 	}
 
 	/**
 	 * Scrapes the image link of prebuilt using selectors
+	 * 
 	 * @param page, Document
 	 * @return imagelink of prebuilt
 	 */
 	private static String getProductImage(Document page) {
 		return Connector.scrape(page,
-				"#root > div > div > div.x-page-content.container_3Sp8P > div.x-product-detail-page > div.row_1Rbqw > div.col-xs-12_1GBy8.col-sm-6_9CRts.col-md-8_3iF9f.productContent_nzEog > div.container_3mvdu.mediaGalleryContainer_3ms_6 > div > div.slick-slider.sliderContainer_3TM5D.slick-initialized > div > div > div.slick-slide.slick-active.slick-current > div > div > div > div > div > img",
+				"#root > div > div > div > div > div> div > div > div> div > div > div > div > div > div > div > div > img",
 				"src").trim();
 	}
-	
+
 	/**
 	 * Scrapes the title of prebuilt using selectors
+	 * 
 	 * @param page, Document
 	 * @return title of prebuilt
 	 */
 	public static String getTitle(Document page) {
-		return Connector.scrape(page, "#root > div > div > div.x-page-content.container_3Sp8P > div.x-product-detail-page > h1");
+		return Connector.scrape(page, "#root > div > div > div > h1");
 	}
 
 }

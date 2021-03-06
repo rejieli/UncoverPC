@@ -1,5 +1,7 @@
 package com.uncoverpc.searchProcess.Computer;
 
+import com.uncoverpc.searchProcess.Utilities.Utils;
+
 public class PC {
 
 	// Class Variables
@@ -93,7 +95,7 @@ public class PC {
 	 * @return price in double format
 	 */
 	public double getDoublePrice() {
-		return Double.parseDouble(price.replace(",", "").replace("$", ""));
+		return Utils.parseDouble(price);
 	}
 
 	/**
@@ -230,6 +232,14 @@ public class PC {
 	 */
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	@Override
+	public String toString() {
+		return "PC [link=" + link + ", price=" + price + ", imageLink=" + imageLink + ", cpu=" + cpu + ", motherboard="
+				+ motherboard + ", ramSize=" + ramSize + ", ramSpeed=" + ramSpeed + ", hddSize=" + hddSize
+				+ ", hddSpeed=" + hddSpeed + ", sddSize=" + sddSize + ", gpu=" + gpu + ", powerSupply=" + powerSupply
+				+ ", chasis=" + chasis + ", title=" + title + "]";
 	}
 	
 	
