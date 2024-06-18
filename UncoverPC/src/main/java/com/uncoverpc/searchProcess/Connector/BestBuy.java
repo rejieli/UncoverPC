@@ -43,10 +43,7 @@ public class BestBuy {
 	 * @return whether component is in source code
 	 */
 	private static boolean isComponent(String htmlText, String component) {
-		if (htmlText.contains(component)) {
-			return true;
-		}
-		return false;
+		return htmlText.contains(component);
 	}
 
 	/**
@@ -61,7 +58,6 @@ public class BestBuy {
 		short counter = 0;
 		while (!found) {
 			if (htmlText.substring(endIndex - counter - 1, endIndex - counter).equals("$")) {
-				found = true;
 				return endIndex - counter - 1;
 			}
 			counter++;
@@ -81,7 +77,6 @@ public class BestBuy {
 		short counter = 0;
 		while (!found) {
 			if (htmlText.substring(beginIndex + counter, beginIndex + counter + 1).equals("\"")) {
-				found = true;
 				return (beginIndex + counter);
 			}
 			counter++;
@@ -161,7 +156,6 @@ public class BestBuy {
 		short counter = 0;
 		while (!found) {
 			if (htmlText.substring(beginIndex + counter, beginIndex + counter + 1).equals("B")) {
-				found = true;
 				return (beginIndex + counter + 1);
 			}
 			counter++;
